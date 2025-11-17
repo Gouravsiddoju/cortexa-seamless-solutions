@@ -148,7 +148,8 @@ All colors MUST be HSL.
   }
 
   .glass-effect {
-    background: hsl(var(--card) / 0.5);
+    /* THIS IS THE FIX: Changed from 0.5 to 0.85 */
+    background: hsl(var(--card) / 0.85);
     backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--border) / 0.5);
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);

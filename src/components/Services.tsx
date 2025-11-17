@@ -87,9 +87,10 @@ const Services = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background"></div>
       
       <div className="container mx-auto relative z-10">
+        {/* THIS IS THE FIX: Wrapped title in a glass-effect box */}
         <motion.div
           ref={titleRef}
-          className="text-center mb-10 sm:mb-16"
+          className="glass-effect rounded-2xl p-8 sm:p-12 text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={titleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}

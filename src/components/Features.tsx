@@ -35,8 +35,9 @@ const Features = () => {
   return (
     <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6">
       <div className="container mx-auto">
+        {/* THIS IS THE FIX: Wrapped title in a glass-effect box */}
         <motion.div
-          className="text-center mb-10 sm:mb-16"
+          className="glass-effect rounded-2xl p-8 sm:p-12 text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
@@ -57,6 +58,7 @@ const Features = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
+              {/* This card will now use the 85% opaque glass-effect */}
               <Card className="glass-effect p-6 sm:p-8 hover:scale-105 transition-transform duration-300 group h-full">
                 <div className="relative mb-6 overflow-hidden rounded-lg h-40 sm:h-48">
                   <img 

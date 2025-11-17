@@ -14,24 +14,31 @@ const Stats = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6 bg-card/30">
+    // 1. Remove background class 'bg-card/30'
+    <section ref={ref} className="py-12 sm:py-24 px-4 sm:px-6">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {stats.map((stat, index) => (
-            <motion.div 
-              key={index} 
-              className="text-center"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-2">
-                {stat.value}
-              </div>
-              <div className="text-sm sm:text-base text-muted-foreground">{stat.label}</div>
-            </motion.div>
-          ))}
-        </div>
+        {/* 2. Add the glass-effect wrapper */}
+        <motion.div 
+          className="glass-effect rounded-2xl p-8 sm:p-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {stats.map((stat, index) => (
+              <motion.div 
+                key={index} 
+                className="text-center"
+                // 3. Removed individual animation
+              >
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm sm:text-base text-muted-foreground">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
