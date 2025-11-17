@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 220 20% 10%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 195 100% 50%;
+    --primary: 180 100% 45%;
     --primary-foreground: 220 25% 8%;
 
-    --secondary: 250 80% 60%;
+    --secondary: 270 85% 65%;
     --secondary-foreground: 210 40% 98%;
 
     --muted: 220 15% 20%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 195 100% 50%;
+    --accent: 180 100% 45%;
     --accent-foreground: 220 25% 8%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,16 +34,18 @@ All colors MUST be HSL.
 
     --border: 220 15% 20%;
     --input: 220 15% 20%;
-    --ring: 195 100% 50%;
+    --ring: 180 100% 45%;
 
     --radius: 0.75rem;
 
     /* Cortexa Custom Colors */
     --neural-blue: 220 80% 50%;
-    --electric-cyan: 195 100% 50%;
-    --deep-indigo: 250 80% 60%;
+    --electric-cyan: 180 100% 45%;
+    --deep-indigo: 270 85% 65%;
+    --vivid-purple: 280 90% 60%;
     --tech-gradient-start: 220 80% 50%;
-    --tech-gradient-end: 195 100% 50%;
+    --tech-gradient-end: 180 100% 45%;
+    --accent-gradient: 270 85% 65%;
   }
 }
 
@@ -60,11 +62,18 @@ All colors MUST be HSL.
 
 @layer utilities {
   .gradient-neural {
-    background: linear-gradient(135deg, hsl(var(--tech-gradient-start)), hsl(var(--tech-gradient-end)));
+    background: linear-gradient(135deg, hsl(var(--tech-gradient-start)), hsl(var(--tech-gradient-end)), hsl(var(--accent-gradient)));
   }
   
   .gradient-glow {
-    background: radial-gradient(circle at 50% 50%, hsl(var(--electric-cyan) / 0.15), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, hsl(var(--electric-cyan) / 0.2), hsl(var(--vivid-purple) / 0.15), transparent 70%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--electric-cyan)), hsl(var(--vivid-purple)));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   .animate-float {
@@ -73,6 +82,10 @@ All colors MUST be HSL.
 
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite alternate;
   }
 
   @keyframes float {
@@ -84,10 +97,24 @@ All colors MUST be HSL.
     }
   }
 
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px hsl(var(--electric-cyan) / 0.3), 0 0 40px hsl(var(--vivid-purple) / 0.2);
+    }
+    to {
+      box-shadow: 0 0 30px hsl(var(--electric-cyan) / 0.5), 0 0 60px hsl(var(--vivid-purple) / 0.4);
+    }
+  }
+
   .glass-effect {
-    background: hsl(var(--card) / 0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid hsl(var(--border) / 0.3);
+    background: hsl(var(--card) / 0.5);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(var(--border) / 0.5);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--electric-cyan) / 0.5), 0 0 40px hsl(var(--electric-cyan) / 0.3);
   }
 }
 

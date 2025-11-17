@@ -50,6 +50,7 @@ export default {
         "neural-blue": "hsl(var(--neural-blue))",
         "electric-cyan": "hsl(var(--electric-cyan))",
         "deep-indigo": "hsl(var(--deep-indigo))",
+        "vivid-purple": "hsl(var(--vivid-purple))",
       },
       borderRadius: {
         lg: "var(--radius)",
