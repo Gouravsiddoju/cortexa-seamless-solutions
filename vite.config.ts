@@ -5,12 +5,12 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // ADD THIS 'base' PROPERTY
-  base: "/cortexa-seamless-solutions/", // <-- Replace 'YourRepoName' with your actual repo name
+  // THIS IS THE FIX:
+  base: "/cortexa-seamless-solutions/",
 
   server: {
     host: "::",
-    port: 5173,
+    port: 5173, // Changed this from 8080 to avoid conflicts
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
