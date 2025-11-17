@@ -8,6 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Dark theme (default) */
     --background: 220 25% 8%;
     --foreground: 210 40% 98%;
 
@@ -46,6 +47,46 @@ All colors MUST be HSL.
     --tech-gradient-start: 220 80% 50%;
     --tech-gradient-end: 180 100% 45%;
     --accent-gradient: 270 85% 65%;
+  }
+
+  .light {
+    /* Light theme */
+    --background: 210 40% 98%;
+    --foreground: 220 25% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 8%;
+
+    --primary: 180 100% 35%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 85% 55%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 15% 40%;
+
+    --accent: 180 100% 35%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 180 100% 35%;
+
+    /* Cortexa Custom Colors - Light */
+    --neural-blue: 220 80% 40%;
+    --electric-cyan: 180 100% 35%;
+    --deep-indigo: 270 85% 55%;
+    --vivid-purple: 280 90% 50%;
+    --tech-gradient-start: 220 80% 40%;
+    --tech-gradient-end: 180 100% 35%;
+    --accent-gradient: 270 85% 55%;
   }
 }
 
